@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PLU Lookup</title>
+<meta name="theme-color" content="#ffd84d">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="PLU">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<script src="plu.js"></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <h1>PLU lookup</h1>
+    <span id="meta" class="meta" aria-live="polite"></span>
+  </div>
+  <input id="q" type="search" placeholder="Type PLU code, article code or product name" autocomplete="off" autocorrect="off" spellcheck="false" autofocus aria-label="Search PLU">
+</header>
+
+<main>
+  <ul id="list" role="listbox" aria-label="Results"></ul>
+  <button id="more" class="more" type="button" hidden></button>
+  <p id="empty" class="empty" hidden></p>
+</main>
+
+<footer>
+  <span id="status"></span>
+</footer>
+
+<script>
+if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+</script>
+<div id="toast" class="toast" role="status"></div>
+</body>
+</html>
